@@ -1,11 +1,8 @@
-import java.util.ArrayList;
-
 public class Cart {
     private static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc[] items = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
     private int qtyOrdered = 0;
 
-    // Add a single DVD to the cart
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
         if (qtyOrdered < MAX_NUMBERS_ORDERED) {
             items[qtyOrdered] = disc;
@@ -16,28 +13,25 @@ public class Cart {
         }
     }
 
-    // Add multiple DVDs to the cart
     public void addDigitalVideoDisc(DigitalVideoDisc... dvdList) {
         for (DigitalVideoDisc dvd : dvdList) {
             addDigitalVideoDisc(dvd);
         }
     }
 
-    // Add exactly two DVDs to the cart
     public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
         addDigitalVideoDisc(dvd1);
         addDigitalVideoDisc(dvd2);
     }
 
-    // Remove a DVD from the cart
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         for (int i = 0; i < qtyOrdered; i++) {
-            if (items[i] == disc) { // Use equals() if comparing content
+            if (items[i] == disc) {
                 for (int j = i; j < qtyOrdered - 1; j++) {
-                    items[j] = items[j + 1]; // Shift elements left
+                    items[j] = items[j + 1];
                 }
-                items[qtyOrdered - 1] = null; // Clear the last element
-                qtyOrdered--; // Decrease the number of DVDs in the cart
+                items[qtyOrdered - 1] = null;
+                qtyOrdered--;
                 System.out.println("The disc \"" + disc.getTitle() + "\" has been removed.");
                 return;
             }
@@ -45,7 +39,6 @@ public class Cart {
         System.out.println("The disc \"" + disc.getTitle() + "\" was not found in the cart.");
     }
 
-    // Calculate the total cost of items in the cart
     public double totalCost() {
         double total = 0;
         for (int i = 0; i < qtyOrdered; i++) {
@@ -54,9 +47,8 @@ public class Cart {
         return total;
     }
 
-    // Print details of the cart
     public void print() {
-        
+        System.out.println("***********************CART***********************");
         System.out.println("Ordered Items:");
         double totalCost = 0;
 
@@ -67,10 +59,9 @@ public class Cart {
         }
 
         System.out.println("Total cost: " + totalCost + " $");
-       
+        System.out.println("***************************************************");
     }
 
-    // Search for DVD by ID
     public void searchById(int id) {
         for (int i = 0; i < qtyOrdered; i++) {
             if (items[i].getId() == id) {
@@ -81,7 +72,6 @@ public class Cart {
         System.out.println("No DVD found with ID: " + id);
     }
 
-    // Search for DVD by title
     public void searchByTitle(String title) {
         boolean found = false;
         for (int i = 0; i < qtyOrdered; i++) {

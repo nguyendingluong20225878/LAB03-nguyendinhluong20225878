@@ -1,38 +1,38 @@
 public class TestPassingParameter {
-
+    
     public static void main(String[] args) {
 
         // Tạo các đối tượng DigitalVideoDisc
         DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
         DigitalVideoDisc cinderellaDVD = new DigitalVideoDisc("Cinderella");
 
-        // In tiêu đề của các DVD trước khi hoán đổi
+       
         System.out.println("jungle dvd title: " + jungleDVD.getTitle());
         System.out.println("cinderella dvd title: " + cinderellaDVD.getTitle());
 
-        // Hoán đổi các DVD
+        // Hoán đổi DVD
         swap(jungleDVD, cinderellaDVD);
 
-        // In tiêu đề của các DVD sau khi hoán đổi
+       
         System.out.println("jungle dvd title: " + jungleDVD.getTitle());
         System.out.println("cinderella dvd title: " + cinderellaDVD.getTitle());
 
-        // Đổi tiêu đề của DVD jungle
+        // Thay đổi tiêu đề của DVD
         changeTitle(jungleDVD, cinderellaDVD.getTitle());
-
-        // In tiêu đề của DVD jungle sau khi đổi tên
+       
         System.out.println("jungle dvd title: " + jungleDVD.getTitle());
     }
 
-    // Hoán đổi giá trị của hai đối tượng DigitalVideoDisc
+    // Phương thức hoán đổi tiêu đề giữa hai DVD
     public static void swap(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
-        DigitalVideoDisc temp = dvd1;
-        dvd1 = dvd2;
-        dvd2 = temp;
+        // Hoán đổi tiêu đề của hai DVD
+        String tempTitle = dvd1.getTitle();
+        dvd1.setTitle(dvd2.getTitle());
+        dvd2.setTitle(tempTitle);
     }
 
-    // Thay đổi tiêu đề của DigitalVideoDisc
-    public static void changeTitle(DigitalVideoDisc dvd, String title) {
-        dvd.setTitle(title);
+    // Phương thức thay đổi tiêu đề DVD
+    public static void changeTitle(DigitalVideoDisc dvd, String newTitle) {
+        dvd.setTitle(newTitle);
     }
 }
