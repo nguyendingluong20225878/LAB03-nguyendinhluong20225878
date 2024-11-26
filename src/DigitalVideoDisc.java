@@ -47,7 +47,21 @@ public class DigitalVideoDisc {
 
     // Phương thức trả về thông tin DVD dưới dạng chuỗi
     public String toString() {
-        return "Title: " + title + ", Category: " + category + ", Director: " + director + ", Length: " + length + ", Cost: $" + cost;
+        String dvdInfo = "Title: " + title + ", Category: " + category;
+        
+        // Nếu có đạo diễn, thêm thông tin đạo diễn vào
+        if (director != null && !director.isEmpty()) {
+            dvdInfo += ", Director: " + director;
+        }
+
+        // Nếu có độ dài, thêm thông tin độ dài vào
+        if (length > 0) {
+            dvdInfo += ", Length: " + length;
+        }
+
+        dvdInfo += ", Cost: $" + cost;
+        
+        return dvdInfo;
     }
 
     // Các getter và setter
@@ -98,5 +112,10 @@ public class DigitalVideoDisc {
     // Phương thức tĩnh trả về số lượng DVD đã tạo
     public static int getNbDigitalVideoDiscs() {
         return nbDigitalVideoDiscs;
+    }
+
+    // Phương thức kiểm tra xem tiêu đề có trùng khớp không
+    public boolean isMatch(String title) {
+        return this.title.equalsIgnoreCase(title);
     }
 }
