@@ -1,0 +1,3 @@
+Java là một ngôn ngữ lập trình truyền tham trị (Pass by Value).
+
+Điều này có nghĩa là khi bạn truyền các đối số vào phương thức, Java sẽ truyền một bản sao của giá trị đó. Các thay đổi được thực hiện trên tham số bên trong phương thức sẽ không ảnh hưởng đến các giá trị gốc ở bên ngoài phương thức.
